@@ -67,24 +67,19 @@
 
 // define your own pinout. Do not forgot that driver needs 5V tolerant pins
 #define LCD_RS_PORT     GPIOF
-#define LCD_RS_PIN  GPIO_PIN_7
-
 #define LCD_RW_PORT     GPIOF
-#define LCD_RW_PIN  GPIO_PIN_6
-
 #define LCD_E_PORT      GPIOF
-#define LCD_E_PIN   GPIO_PIN_5
-
 #define LCD_D4_PORT     GPIOG
-#define LCD_D4_PIN  GPIO_PIN_0
-
 #define LCD_D5_PORT     GPIOG
-#define LCD_D5_PIN  GPIO_PIN_1
-
 #define LCD_D6_PORT     GPIOG
-#define LCD_D6_PIN  GPIO_PIN_2
-
 #define LCD_D7_PORT     GPIOG
+
+#define LCD_RS_PIN  GPIO_PIN_7
+#define LCD_RW_PIN  GPIO_PIN_6
+#define LCD_E_PIN   GPIO_PIN_5
+#define LCD_D4_PIN  GPIO_PIN_0
+#define LCD_D5_PIN  GPIO_PIN_1
+#define LCD_D6_PIN  GPIO_PIN_2
 #define LCD_D7_PIN  GPIO_PIN_3
 
 // define only if powering LCD from GPIO (feature for low power applications)
@@ -182,7 +177,6 @@ void lcd_store_symbol(uint8_t pos, uint8_t* charmap); 	// write users own charat
 #define lcd_cursor_on() 				lcd_command(LCD_DISPLAY_ONOFF | LCD_ON | LCD_CURSOR_ON | LCD_BLINK_OFF) // activate underscore cursor
 #define lcd_cursor_blink() 	lcd_command(LCD_DISPLAY_ONOFF | LCD_ON | LCD_CURSOR_OFF | LCD_BLINK_ON) 		// activate blinking block 5x8 cursor
 #define lcd_cursor_off() 			lcd_command(LCD_DISPLAY_ONOFF | LCD_ON | LCD_CURSOR_OFF | LCD_BLINK_OFF) 	// deactivate both cursor (underscore and blink)
-
 
 #ifdef USE_POWER_PIN
 	#define lcd_power_off(void) GPIO_WriteLow(LCD_PWR_PORT,LCD_PWR_PIN)
